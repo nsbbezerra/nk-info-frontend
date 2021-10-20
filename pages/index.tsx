@@ -1,11 +1,26 @@
-import { Box, Container, Flex, Grid, Heading, Text } from "@chakra-ui/layout";
+import {
+  Box,
+  Container,
+  Flex,
+  Grid,
+  Heading,
+  Text,
+  List,
+  ListItem,
+  ListIcon,
+  OrderedList,
+  UnorderedList,
+} from "@chakra-ui/layout";
 import { Icon } from "@chakra-ui/icon";
 import type { NextPage } from "next";
 import React from "react";
 import Header from "../components/Header";
-import { FaDesktop, FaPaintBrush, FaToolbox } from "react-icons/fa";
-import { MdPublic } from "react-icons/md";
+import { FaDesktop } from "react-icons/fa";
+import { MdCheckCircle, MdPublic } from "react-icons/md";
 import { useColorMode } from "@chakra-ui/color-mode";
+import { CgToolbox } from "react-icons/cg";
+import { BsBrush } from "react-icons/bs";
+import Image from "next/image";
 
 const Home: NextPage = () => {
   const { colorMode } = useColorMode();
@@ -42,7 +57,7 @@ const Home: NextPage = () => {
         >
           <Flex>
             <Box mr={7}>
-              <Icon as={FaToolbox} fontSize="6xl" color="blue.500" />
+              <Icon as={CgToolbox} fontSize="6xl" color="blue.500" />
             </Box>
             <Box>
               <Heading fontSize="lg" mb={3}>
@@ -58,7 +73,7 @@ const Home: NextPage = () => {
 
           <Flex>
             <Box mr={7}>
-              <Icon as={FaPaintBrush} fontSize="6xl" color="blue.500" />
+              <Icon as={BsBrush} fontSize="6xl" color="blue.500" />
             </Box>
             <Box>
               <Heading fontSize="lg" mb={3}>
@@ -102,6 +117,284 @@ const Home: NextPage = () => {
           </Flex>
         </Grid>
       </Container>
+
+      <Box
+        p={10}
+        mt={20}
+        bg={colorMode === "light" ? "blackAlpha.50" : "blackAlpha.300"}
+      >
+        <Container maxW="6xl">
+          <Flex direction="column" justify="center" align="center">
+            <Heading mb={5} textAlign="center">
+              Nossos Produtos
+            </Heading>
+            <Box
+              width="200px"
+              h="4px"
+              bgGradient="linear(to-r, blue.500, blue.800)"
+            />
+            <Text
+              fontSize="lg"
+              color={colorMode === "light" ? "gray.600" : "gray.300"}
+              mt={3}
+            >
+              O Produto personalizado para sua empresa, sua casa, seus estudos,
+              nós temos aqui!
+            </Text>
+          </Flex>
+
+          <Grid
+            templateColumns={[
+              "1fr",
+              "1fr",
+              "380px 1fr",
+              "380px 1fr",
+              "380px 1fr",
+            ]}
+            gap={10}
+            mt={6}
+            alignItems="center"
+            justifyItems="center"
+          >
+            <Box w="380px">
+              <Image
+                src="/img/computer.png"
+                width={380}
+                height={380}
+                layout="responsive"
+                objectFit="contain"
+              />
+            </Box>
+            <Box>
+              <Heading
+                color={colorMode === "light" ? "blue.500" : "blue.300"}
+                fontSize="3xl"
+              >
+                Assistência Técnica
+              </Heading>
+
+              <List spacing={2} fontSize="xl" mt={5}>
+                <ListItem>
+                  <ListIcon
+                    as={MdCheckCircle}
+                    color={colorMode === "light" ? "blue.500" : "blue.300"}
+                  />
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                </ListItem>
+                <ListItem>
+                  <ListIcon
+                    as={MdCheckCircle}
+                    color={colorMode === "light" ? "blue.500" : "blue.300"}
+                  />
+                  Assumenda, quia temporibus eveniet a libero incidunt suscipit
+                </ListItem>
+                <ListItem>
+                  <ListIcon
+                    as={MdCheckCircle}
+                    color={colorMode === "light" ? "blue.500" : "blue.300"}
+                  />
+                  Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
+                </ListItem>
+                <ListItem>
+                  <ListIcon
+                    as={MdCheckCircle}
+                    color={colorMode === "light" ? "blue.500" : "blue.300"}
+                  />
+                  Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
+                </ListItem>
+              </List>
+            </Box>
+          </Grid>
+
+          <Grid
+            templateColumns={[
+              "1fr",
+              "1fr",
+              "380px 1fr",
+              "380px 1fr",
+              "380px 1fr",
+            ]}
+            gap={10}
+            alignItems="center"
+            justifyItems="center"
+          >
+            <Box>
+              <Heading
+                color={colorMode === "light" ? "blue.500" : "blue.300"}
+                fontSize="3xl"
+              >
+                Gráfica e Comunicação Visual
+              </Heading>
+
+              <List spacing={2} fontSize="xl" mt={5}>
+                <ListItem>
+                  <ListIcon
+                    as={MdCheckCircle}
+                    color={colorMode === "light" ? "blue.500" : "blue.300"}
+                  />
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                </ListItem>
+                <ListItem>
+                  <ListIcon
+                    as={MdCheckCircle}
+                    color={colorMode === "light" ? "blue.500" : "blue.300"}
+                  />
+                  Assumenda, quia temporibus eveniet a libero incidunt suscipit
+                </ListItem>
+                <ListItem>
+                  <ListIcon
+                    as={MdCheckCircle}
+                    color={colorMode === "light" ? "blue.500" : "blue.300"}
+                  />
+                  Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
+                </ListItem>
+                <ListItem>
+                  <ListIcon
+                    as={MdCheckCircle}
+                    color={colorMode === "light" ? "blue.500" : "blue.300"}
+                  />
+                  Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
+                </ListItem>
+              </List>
+            </Box>
+
+            <Box w="380px">
+              <Image
+                src="/img/paint.png"
+                width={380}
+                height={380}
+                layout="responsive"
+                objectFit="contain"
+              />
+            </Box>
+          </Grid>
+
+          <Grid
+            templateColumns={[
+              "1fr",
+              "1fr",
+              "380px 1fr",
+              "380px 1fr",
+              "380px 1fr",
+            ]}
+            gap={10}
+            alignItems="center"
+            justifyItems="center"
+          >
+            <Box w="380px">
+              <Image
+                src="/img/marketing.png"
+                width={380}
+                height={380}
+                layout="responsive"
+                objectFit="contain"
+              />
+            </Box>
+            <Box>
+              <Heading
+                color={colorMode === "light" ? "blue.500" : "blue.300"}
+                fontSize="3xl"
+              >
+                Marketing Digital
+              </Heading>
+
+              <List spacing={2} fontSize="xl" mt={5}>
+                <ListItem>
+                  <ListIcon
+                    as={MdCheckCircle}
+                    color={colorMode === "light" ? "blue.500" : "blue.300"}
+                  />
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                </ListItem>
+                <ListItem>
+                  <ListIcon
+                    as={MdCheckCircle}
+                    color={colorMode === "light" ? "blue.500" : "blue.300"}
+                  />
+                  Assumenda, quia temporibus eveniet a libero incidunt suscipit
+                </ListItem>
+                <ListItem>
+                  <ListIcon
+                    as={MdCheckCircle}
+                    color={colorMode === "light" ? "blue.500" : "blue.300"}
+                  />
+                  Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
+                </ListItem>
+                <ListItem>
+                  <ListIcon
+                    as={MdCheckCircle}
+                    color={colorMode === "light" ? "blue.500" : "blue.300"}
+                  />
+                  Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
+                </ListItem>
+              </List>
+            </Box>
+          </Grid>
+
+          <Grid
+            templateColumns={[
+              "1fr",
+              "1fr",
+              "380px 1fr",
+              "380px 1fr",
+              "380px 1fr",
+            ]}
+            gap={10}
+            alignItems="center"
+            justifyItems="center"
+          >
+            <Box>
+              <Heading
+                color={colorMode === "light" ? "blue.500" : "blue.300"}
+                fontSize="3xl"
+              >
+                Sites e Sistemas
+              </Heading>
+
+              <List spacing={2} fontSize="xl" mt={5}>
+                <ListItem>
+                  <ListIcon
+                    as={MdCheckCircle}
+                    color={colorMode === "light" ? "blue.500" : "blue.300"}
+                  />
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                </ListItem>
+                <ListItem>
+                  <ListIcon
+                    as={MdCheckCircle}
+                    color={colorMode === "light" ? "blue.500" : "blue.300"}
+                  />
+                  Assumenda, quia temporibus eveniet a libero incidunt suscipit
+                </ListItem>
+                <ListItem>
+                  <ListIcon
+                    as={MdCheckCircle}
+                    color={colorMode === "light" ? "blue.500" : "blue.300"}
+                  />
+                  Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
+                </ListItem>
+                <ListItem>
+                  <ListIcon
+                    as={MdCheckCircle}
+                    color={colorMode === "light" ? "blue.500" : "blue.300"}
+                  />
+                  Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
+                </ListItem>
+              </List>
+            </Box>
+
+            <Box w="380px">
+              <Image
+                src="/img/system.png"
+                width={380}
+                height={380}
+                layout="responsive"
+                objectFit="contain"
+              />
+            </Box>
+          </Grid>
+        </Container>
+      </Box>
     </React.Fragment>
   );
 };

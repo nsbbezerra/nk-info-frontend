@@ -149,7 +149,14 @@ const Header: FC = () => {
           </Flex>
         </Container>
       </Box>
-      <Box bgGradient="linear(to-r, blue.500, blue.800)" pb={[10, 10, 0, 0, 0]}>
+      <Box
+        bgGradient={
+          colorMode === "light"
+            ? "linear(to-r, blue.500, teal.400)"
+            : "linear(to-r, blackAlpha.500, blackAlpha.400)"
+        }
+        pb={[10, 10, 0, 0, 0]}
+      >
         <Container maxW="6xl">
           <Grid
             templateColumns={["1fr", "1fr", "1fr 1fr", "1fr 1fr", "1fr 1fr"]}

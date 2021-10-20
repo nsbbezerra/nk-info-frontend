@@ -44,8 +44,11 @@ const customTheme = extendTheme({
       baseStyle: {
         list: {
           rounded: "xl",
-          boxShadow: "lg",
-          p: 1,
+          shadow: "lg",
+          pt: 2,
+          pb: 2,
+          pl: 1,
+          pr: 1,
         },
         item: {
           _active: { bg: "blue.500", color: "white" },
