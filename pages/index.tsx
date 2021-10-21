@@ -24,6 +24,8 @@ import Carousel, {
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { configs } from "../configs/config";
 
+import CarouselApp from "../components/Carousel";
+
 const Home: NextPage = () => {
   const { colorMode } = useColorMode();
 
@@ -72,6 +74,7 @@ const Home: NextPage = () => {
       </Flex>
     );
   };
+
   return (
     <React.Fragment>
       <Header />
@@ -352,7 +355,7 @@ const Home: NextPage = () => {
       <Container mt={20} maxW="6xl">
         <Flex direction="column" justify="center" align="center">
           <Heading mt={3} mb={5} textAlign="center">
-            Planos de Assistência Técnica para Empresas
+            Planos de Assistência Técnica Empresarial
           </Heading>
 
           <Box
@@ -363,6 +366,161 @@ const Home: NextPage = () => {
 
           <Text mt={3} textAlign="center">
             Escolha o plano que combina com o seu negócio!
+          </Text>
+        </Flex>
+
+        <Box mt={10}>
+          <CarouselApp />
+        </Box>
+      </Container>
+
+      <Container mt={20} maxW="6xl">
+        <Flex direction="column" justify="center" align="center">
+          <Heading mt={3} mb={5} textAlign="center">
+            Planos de Assistência Técnica Residenciais
+          </Heading>
+
+          <Box
+            width="200px"
+            h="4px"
+            bgGradient="linear(to-r, blue.500, blue.800)"
+          />
+
+          <Text mt={3} textAlign="center">
+            Não esquente a cabeça, nois cuidados do seu equipamento!
+          </Text>
+        </Flex>
+
+        <Box mt={10}>
+          <CarouselApp />
+        </Box>
+      </Container>
+
+      <Box
+        mt={20}
+        backgroundImage="url(/img/background-fixed.jpg)"
+        backgroundAttachment="fixed"
+        backgroundRepeat="no-repeat"
+        backgroundSize="cover"
+      >
+        <Box
+          p={10}
+          bg={colorMode === "light" ? "whiteAlpha.800" : "blackAlpha.900"}
+        >
+          <Container maxW="5xl">
+            <Flex direction="column" justify="center" align="center">
+              <Heading mt={3} mb={5} textAlign="center">
+                O Cliente em Primeiro Lugar!
+              </Heading>
+
+              <Box
+                width="200px"
+                h="4px"
+                bgGradient="linear(to-r, blue.500, blue.800)"
+              />
+
+              <Text mt={3} textAlign="center">
+                Aqui o Cliente tem tratamento VIP
+              </Text>
+            </Flex>
+
+            <Grid
+              templateColumns="repeat(auto-fit, minmax(250px, 250px))"
+              gap={5}
+              mt={10}
+              justifyContent="center"
+            >
+              <Flex
+                direction="column"
+                justify="center"
+                align="center"
+                textAlign="center"
+              >
+                <Box w="80px">
+                  <Image
+                    src="/img/trophy.svg"
+                    width={200}
+                    height={200}
+                    layout="responsive"
+                    objectFit="contain"
+                    alt="NK Informática e Gráfica - Assistência Técnica"
+                  />
+                </Box>
+                <Heading fontSize="xl" mt={2} mb={2}>
+                  Serviço de Qualidade
+                </Heading>
+                <Text fontSize="sm">
+                  Temos Profissionais altamente qualificados, garantimos o nosso
+                  serviço, e estamos sempre prontos a lhe oferecer o melhor!
+                </Text>
+              </Flex>
+              <Flex
+                direction="column"
+                justify="center"
+                align="center"
+                textAlign="center"
+              >
+                <Box w="80px">
+                  <Image
+                    src="/img/tele.svg"
+                    width={200}
+                    height={200}
+                    layout="responsive"
+                    objectFit="contain"
+                    alt="NK Informática e Gráfica - Assistência Técnica"
+                  />
+                </Box>
+                <Heading fontSize="xl" mt={2} mb={2}>
+                  Atendimento Diferenciado
+                </Heading>
+                <Text fontSize="sm">
+                  Estamos sempre prontos a lhe atender, seja qual for a ocasião
+                  nossa equipe estará a postos para solucionar o seu problema!
+                </Text>
+              </Flex>
+              <Flex
+                direction="column"
+                justify="center"
+                align="center"
+                textAlign="center"
+              >
+                <Box w="80px">
+                  <Image
+                    src="/img/delivery.svg"
+                    width={200}
+                    height={200}
+                    layout="responsive"
+                    objectFit="contain"
+                    alt="NK Informática e Gráfica - Assistência Técnica"
+                  />
+                </Box>
+                <Heading fontSize="xl" mt={2} mb={2}>
+                  Rapidez e Agilidade
+                </Heading>
+                <Text fontSize="sm">
+                  Entregaremos o seu pedido com o maior rapidez, trabalhamos a
+                  todo vapor para lhe entregar em tempo hábil o seu produto!
+                </Text>
+              </Flex>
+            </Grid>
+          </Container>
+        </Box>
+      </Box>
+
+      <Container mt={20} maxW="6xl">
+        <Flex direction="column" justify="center" align="center">
+          <Heading mt={3} mb={5} textAlign="center">
+            Planos de Assistência Técnica Residenciais
+          </Heading>
+
+          <Box
+            width="200px"
+            h="4px"
+            bgGradient="linear(to-r, blue.500, blue.800)"
+          />
+
+          <Text mt={3} textAlign="center">
+            Não esquente a cabeça, nois cuidados do seu equipamento!
           </Text>
         </Flex>
 
@@ -381,282 +539,20 @@ const Home: NextPage = () => {
               borderWidth="1px"
               shadow="lg"
               overflow="hidden"
-              w="320px"
+              w="280px"
               _hover={{ transform: "scale(1.05)" }}
               transition="all .3s"
             >
-              <Flex
-                p={5}
-                bgGradient="linear(to-r, #c1beba, #e5e4e2)"
-                justify="center"
-                align="center"
-                direction="column"
-                textAlign="center"
-              >
-                <Text
-                  fontSize={["lg", "3xl", "3xl", "3xl", "3xl"]}
-                  fontWeight="bold"
-                  color="gray.700"
-                >
-                  Plano Premium
-                </Text>
-                <Flex justify="center" align="flex-end">
-                  <Text
-                    fontSize={["xl", "4xl", "4xl", "4xl", "4xl"]}
-                    color="gray.700"
-                    fontWeight="semibold"
-                    mb={[-1, -2, -2, -2, -2]}
-                  >
-                    R$ 180,00
-                  </Text>
-                  <Text
-                    fontSize={["md", "2xl", "2xl", "2xl", "2xl"]}
-                    color="gray.700"
-                    ml={2}
-                  >
-                    / mês
-                  </Text>
-                </Flex>
-              </Flex>
-
-              <Box p={5}>
-                <List spacing={3} fontSize={["xs", "md", "md", "md", "md"]}>
-                  <ListItem>
-                    <ListIcon
-                      as={MdCheckCircle}
-                      color={colorMode === "light" ? "blue.500" : "blue.200"}
-                    />
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                  </ListItem>
-                  <ListItem>
-                    <ListIcon
-                      as={MdCheckCircle}
-                      color={colorMode === "light" ? "blue.500" : "blue.200"}
-                    />
-                    Assumenda, quia temporibus eveniet a libero incidunt
-                    suscipit
-                  </ListItem>
-                  <ListItem>
-                    <ListIcon
-                      as={MdCheckCircle}
-                      color={colorMode === "light" ? "blue.500" : "blue.200"}
-                    />
-                    Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
-                  </ListItem>
-                </List>
-
-                <Button
-                  isFullWidth
-                  colorScheme="blue"
-                  mt={5}
-                  leftIcon={<BsCheck />}
-                >
-                  Contratar
-                </Button>
+              <Box w="100%">
+                <Image
+                  src="https://img.freepik.com/vetores-gratis/conjunto-de-cartao-de-visita-profissional-moderno_169798-804.jpg?size=338&ext=jpg"
+                  width={350}
+                  height={350}
+                  layout="responsive"
+                  objectFit="contain"
+                  alt="NK Informática e Gráfica - Assistência Técnica"
+                />
               </Box>
-            </Box>
-            <Box
-              rounded="2xl"
-              borderWidth="1px"
-              shadow="lg"
-              overflow="hidden"
-              w="320px"
-              _hover={{ transform: "scale(1.05)" }}
-              transition="all .3s"
-            >
-              <Flex
-                p={5}
-                bgGradient="linear(to-r, #DAA520, #FFD700)"
-                justify="center"
-                align="center"
-                direction="column"
-                textAlign="center"
-              >
-                <Text
-                  fontSize={["lg", "3xl", "3xl", "3xl", "3xl"]}
-                  fontWeight="bold"
-                  color="gray.700"
-                >
-                  Plano Gold
-                </Text>
-                <Flex justify="center" align="flex-end">
-                  <Text
-                    fontSize={["xl", "4xl", "4xl", "4xl", "4xl"]}
-                    color="gray.700"
-                    fontWeight="semibold"
-                    mb={[-1, -2, -2, -2, -2]}
-                  >
-                    R$ 180,00
-                  </Text>
-                  <Text
-                    fontSize={["md", "2xl", "2xl", "2xl", "2xl"]}
-                    color="gray.700"
-                    ml={2}
-                  >
-                    / mês
-                  </Text>
-                </Flex>
-              </Flex>
-
-              <Box p={5}>
-                <List spacing={3} fontSize={["xs", "md", "md", "md", "md"]}>
-                  <ListItem>
-                    <ListIcon
-                      as={MdCheckCircle}
-                      color={colorMode === "light" ? "blue.500" : "blue.200"}
-                    />
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                  </ListItem>
-                  <ListItem>
-                    <ListIcon
-                      as={MdCheckCircle}
-                      color={colorMode === "light" ? "blue.500" : "blue.200"}
-                    />
-                    Assumenda, quia temporibus eveniet a libero incidunt
-                    suscipit
-                  </ListItem>
-                  <ListItem>
-                    <ListIcon
-                      as={MdCheckCircle}
-                      color={colorMode === "light" ? "blue.500" : "blue.200"}
-                    />
-                    Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
-                  </ListItem>
-                </List>
-
-                <Button
-                  isFullWidth
-                  colorScheme="blue"
-                  mt={5}
-                  leftIcon={<BsCheck />}
-                >
-                  Contratar
-                </Button>
-              </Box>
-            </Box>
-
-            <Box
-              rounded="2xl"
-              borderWidth="1px"
-              shadow="lg"
-              overflow="hidden"
-              w="320px"
-              _hover={{ transform: "scale(1.05)" }}
-              transition="all .3s"
-            >
-              <Flex
-                p={5}
-                bgGradient="linear(to-r, #c0c0c0, #dfdfdf)"
-                justify="center"
-                align="center"
-                direction="column"
-                textAlign="center"
-              >
-                <Text
-                  fontSize={["lg", "3xl", "3xl", "3xl", "3xl"]}
-                  fontWeight="bold"
-                  color="gray.700"
-                >
-                  Plano Prata
-                </Text>
-                <Flex justify="center" align="flex-end">
-                  <Text
-                    fontSize={["xl", "4xl", "4xl", "4xl", "4xl"]}
-                    color="gray.700"
-                    fontWeight="semibold"
-                    mb={[-1, -2, -2, -2, -2]}
-                  >
-                    R$ 180,00
-                  </Text>
-                  <Text
-                    fontSize={["md", "2xl", "2xl", "2xl", "2xl"]}
-                    color="gray.700"
-                    ml={2}
-                  >
-                    / mês
-                  </Text>
-                </Flex>
-              </Flex>
-
-              <Box p={5}>
-                <List spacing={3} fontSize={["xs", "md", "md", "md", "md"]}>
-                  <ListItem>
-                    <ListIcon
-                      as={MdCheckCircle}
-                      color={colorMode === "light" ? "blue.500" : "blue.200"}
-                    />
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                  </ListItem>
-                  <ListItem>
-                    <ListIcon
-                      as={MdCheckCircle}
-                      color={colorMode === "light" ? "blue.500" : "blue.200"}
-                    />
-                    Assumenda, quia temporibus eveniet a libero incidunt
-                    suscipit
-                  </ListItem>
-                  <ListItem>
-                    <ListIcon
-                      as={MdCheckCircle}
-                      color={colorMode === "light" ? "blue.500" : "blue.200"}
-                    />
-                    Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
-                  </ListItem>
-                </List>
-
-                <Button
-                  isFullWidth
-                  colorScheme="blue"
-                  mt={5}
-                  leftIcon={<BsCheck />}
-                >
-                  Contratar
-                </Button>
-              </Box>
-            </Box>
-
-            <Box
-              rounded="2xl"
-              borderWidth="1px"
-              shadow="lg"
-              overflow="hidden"
-              w="320px"
-              _hover={{ transform: "scale(1.05)" }}
-              transition="all .3s"
-            >
-              <Flex
-                p={5}
-                bgGradient="linear(to-r, #cd7f32, #e4a875)"
-                justify="center"
-                align="center"
-                direction="column"
-                textAlign="center"
-              >
-                <Text
-                  fontSize={["lg", "3xl", "3xl", "3xl", "3xl"]}
-                  fontWeight="bold"
-                  color="gray.700"
-                >
-                  Plano Bronze
-                </Text>
-                <Flex justify="center" align="flex-end">
-                  <Text
-                    fontSize={["xl", "4xl", "4xl", "4xl", "4xl"]}
-                    color="gray.700"
-                    fontWeight="semibold"
-                    mb={[-1, -2, -2, -2, -2]}
-                  >
-                    R$ 180,00
-                  </Text>
-                  <Text
-                    fontSize={["md", "2xl", "2xl", "2xl", "2xl"]}
-                    color="gray.700"
-                    ml={2}
-                  >
-                    / mês
-                  </Text>
-                </Flex>
-              </Flex>
 
               <Box p={5}>
                 <List spacing={3} fontSize={["xs", "md", "md", "md", "md"]}>

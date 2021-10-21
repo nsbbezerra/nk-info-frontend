@@ -1,5 +1,9 @@
 import { theme, extendTheme } from "@chakra-ui/react";
 
+interface StyleOptions {
+  colorMode: "light" | "dark";
+}
+
 const customTheme = extendTheme({
   ...theme,
   breakpoints: ["30em", "48em", "52em", "62em", "80em"],
@@ -41,7 +45,7 @@ const customTheme = extendTheme({
       baseStyle: { control: { _focus: { boxShadow: "none" } } },
     },
     Menu: {
-      baseStyle: {
+      baseStyle: ({ colorMode }: StyleOptions) => ({
         list: {
           rounded: "xl",
           shadow: "lg",
@@ -49,6 +53,8 @@ const customTheme = extendTheme({
           pb: 2,
           pl: 1,
           pr: 1,
+          bg: colorMode === "light" ? "whiteAlpha.900" : "blackAlpha.900",
+          backdropFilter: "blur(10px)",
         },
         item: {
           _active: { bg: "blue.500", color: "white" },
@@ -56,7 +62,7 @@ const customTheme = extendTheme({
           _focus: { bg: "blue.500", color: "white" },
           rounded: "full",
         },
-      },
+      }),
     },
   },
 });

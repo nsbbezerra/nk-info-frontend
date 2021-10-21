@@ -1,4 +1,4 @@
-import { FC, Fragment } from "react";
+import { FC, Fragment, useEffect, useState } from "react";
 import Head from "next/head";
 import {
   Box,
@@ -34,6 +34,8 @@ import { Tooltip } from "@chakra-ui/tooltip";
 const Header: FC = () => {
   const { toggleColorMode, colorMode } = useColorMode();
 
+  const [offset, setOffset] = useState<boolean>(false);
+
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -43,6 +45,101 @@ const Header: FC = () => {
     },
   };
 
+  useEffect(() => {
+    window.onscroll = () => {
+      if (window.pageYOffset >= 80) {
+        setOffset(true);
+      } else {
+        setOffset(false);
+      }
+    };
+  }, []);
+
+  const MenuApp = () => (
+    <Container maxW="5xl">
+      <Flex align="center" justify="space-between">
+        <Box w="80px" h="80px">
+          <Image
+            src={
+              colorMode === "light" ? "/img/logo.svg" : "/img/logo-white.svg"
+            }
+            objectFit="contain"
+            layout="responsive"
+            height={200}
+            width={200}
+          />
+        </Box>
+        <HStack spacing={2}>
+          <HStack d={["none", "none", "none", "flex", "flex"]}>
+            <Button colorScheme="blue" variant="ghost" leftIcon={<IoHome />}>
+              Início
+            </Button>
+            <Button colorScheme="blue" variant="ghost" leftIcon={<IoBulb />}>
+              Sobre Nós
+            </Button>
+            <Menu placement="bottom-end">
+              <MenuButton
+                colorScheme="blue"
+                variant="ghost"
+                as={Button}
+                leftIcon={<IoMdPricetags />}
+                rightIcon={<MdKeyboardArrowDown />}
+              >
+                Portfólio
+              </MenuButton>
+              <MenuList>
+                <MenuItem icon={<FaToolbox />}>Nossos Serviços</MenuItem>
+                <MenuItem icon={<FaTag />}>Nossos Produtos</MenuItem>
+                <MenuItem icon={<MdDesktopMac />}>Nossos Sistemas</MenuItem>
+                <MenuItem icon={<BsShop />}>Soluções para Empresas</MenuItem>
+                <MenuItem icon={<FaHouseUser />}>
+                  Soluções para o Consumidor
+                </MenuItem>
+              </MenuList>
+            </Menu>
+            <Button colorScheme="blue" variant="ghost" leftIcon={<IoBulb />}>
+              Fale Conosco
+            </Button>
+          </HStack>
+
+          <HStack>
+            <Tooltip
+              label={colorMode === "light" ? "Modo Escuro" : "Modo Claro"}
+            >
+              <IconButton
+                aria-label="theme"
+                colorScheme="blue"
+                variant="ghost"
+                icon={colorMode === "light" ? <FaMoon /> : <FaSun />}
+                onClick={toggleColorMode}
+              />
+            </Tooltip>
+
+            <Menu placement="bottom-end">
+              <MenuButton
+                colorScheme="blue"
+                variant="ghost"
+                as={IconButton}
+                icon={<FaUserAlt />}
+              />
+              <MenuList>
+                <MenuItem icon={<FaRegSave />}>Cadastre-se</MenuItem>
+                <MenuItem icon={<IoMdLogIn />}>Faça Login</MenuItem>
+              </MenuList>
+            </Menu>
+
+            <IconButton
+              aria-label="theme"
+              colorScheme="blue"
+              variant="ghost"
+              icon={<FaShoppingCart />}
+            />
+          </HStack>
+        </HStack>
+      </Flex>
+    </Container>
+  );
+
   return (
     <Fragment>
       <Head>
@@ -50,105 +147,23 @@ const Header: FC = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Box w="100%" h="max-content">
-        <Container maxW="5xl">
-          <Flex align="center" justify="space-between">
-            <Box w="80px" h="80px">
-              <Image
-                src={
-                  colorMode === "light"
-                    ? "/img/logo.svg"
-                    : "/img/logo-white.svg"
-                }
-                objectFit="contain"
-                layout="responsive"
-                height={200}
-                width={200}
-              />
-            </Box>
-            <HStack spacing={2}>
-              <HStack d={["none", "none", "none", "flex", "flex"]}>
-                <Button
-                  colorScheme="blue"
-                  variant="ghost"
-                  leftIcon={<IoHome />}
-                >
-                  Início
-                </Button>
-                <Button
-                  colorScheme="blue"
-                  variant="ghost"
-                  leftIcon={<IoBulb />}
-                >
-                  Sobre Nós
-                </Button>
-                <Menu placement="bottom-end">
-                  <MenuButton
-                    colorScheme="blue"
-                    variant="ghost"
-                    as={Button}
-                    leftIcon={<IoMdPricetags />}
-                    rightIcon={<MdKeyboardArrowDown />}
-                  >
-                    Portfólio
-                  </MenuButton>
-                  <MenuList>
-                    <MenuItem icon={<FaToolbox />}>Nossos Serviços</MenuItem>
-                    <MenuItem icon={<FaTag />}>Nossos Produtos</MenuItem>
-                    <MenuItem icon={<MdDesktopMac />}>Nossos Sistemas</MenuItem>
-                    <MenuItem icon={<BsShop />}>
-                      Soluções para Empresas
-                    </MenuItem>
-                    <MenuItem icon={<FaHouseUser />}>
-                      Soluções para o Consumidor
-                    </MenuItem>
-                  </MenuList>
-                </Menu>
-                <Button
-                  colorScheme="blue"
-                  variant="ghost"
-                  leftIcon={<IoBulb />}
-                >
-                  Fale Conosco
-                </Button>
-              </HStack>
-
-              <HStack>
-                <Tooltip
-                  label={colorMode === "light" ? "Modo Escuro" : "Modo Claro"}
-                >
-                  <IconButton
-                    aria-label="theme"
-                    colorScheme="blue"
-                    variant="ghost"
-                    icon={colorMode === "light" ? <FaMoon /> : <FaSun />}
-                    onClick={toggleColorMode}
-                  />
-                </Tooltip>
-
-                <Menu placement="bottom-end">
-                  <MenuButton
-                    colorScheme="blue"
-                    variant="ghost"
-                    as={IconButton}
-                    icon={<FaUserAlt />}
-                  />
-                  <MenuList>
-                    <MenuItem icon={<FaRegSave />}>Cadastre-se</MenuItem>
-                    <MenuItem icon={<IoMdLogIn />}>Faça Login</MenuItem>
-                  </MenuList>
-                </Menu>
-
-                <IconButton
-                  aria-label="theme"
-                  colorScheme="blue"
-                  variant="ghost"
-                  icon={<FaShoppingCart />}
-                />
-              </HStack>
-            </HStack>
-          </Flex>
-        </Container>
+        <MenuApp />
       </Box>
+
+      <Box
+        w="100%"
+        bg={colorMode === "light" ? "whiteAlpha.800" : "blackAlpha.800"}
+        position="fixed"
+        top={0}
+        backdropFilter="blur(10px)"
+        zIndex={1000}
+        shadow="lg"
+        mt={offset ? "0%" : "-100%"}
+        transition="all .4s"
+      >
+        <MenuApp />
+      </Box>
+
       <Box
         bgGradient={
           colorMode === "light"
