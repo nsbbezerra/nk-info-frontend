@@ -8,6 +8,7 @@ module.exports = {
       "img.freepik.com",
       "localhost",
       "vps34531.publiccloud.com.br",
+      "www.imprimastore.com",
     ],
   },
   trailingSlash: true,

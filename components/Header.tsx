@@ -58,7 +58,7 @@ const Header: FC = () => {
   const MenuApp = () => (
     <Container maxW="5xl">
       <Flex align="center" justify="space-between">
-        <Box w="80px" h="80px">
+        <Box w={offset ? "60px" : "80px"} h={offset ? "60px" : "80px"}>
           <Image
             src={
               colorMode === "light" ? "/img/logo.svg" : "/img/logo-white.svg"

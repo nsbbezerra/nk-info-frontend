@@ -8,6 +8,7 @@ import {
   List,
   ListItem,
   ListIcon,
+  Stack,
 } from "@chakra-ui/layout";
 import type { NextPage } from "next";
 import React from "react";
@@ -25,6 +26,7 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { configs } from "../configs/config";
 
 import CarouselApp from "../components/Carousel";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Home: NextPage = () => {
   const { colorMode } = useColorMode();
@@ -355,7 +357,7 @@ const Home: NextPage = () => {
       <Container mt={20} maxW="6xl">
         <Flex direction="column" justify="center" align="center">
           <Heading mt={3} mb={5} textAlign="center">
-            Planos de Assistência Técnica Empresarial
+            Planos de Assistência Técnica
           </Heading>
 
           <Box
@@ -365,7 +367,7 @@ const Home: NextPage = () => {
           />
 
           <Text mt={3} textAlign="center">
-            Escolha o plano que combina com o seu negócio!
+            Escolha o plano que combina com o seu negócio e sua residência!
           </Text>
         </Flex>
 
@@ -377,7 +379,7 @@ const Home: NextPage = () => {
       <Container mt={20} maxW="6xl">
         <Flex direction="column" justify="center" align="center">
           <Heading mt={3} mb={5} textAlign="center">
-            Planos de Assistência Técnica Residenciais
+            Produtos Mais Vendidos
           </Heading>
 
           <Box
@@ -387,140 +389,7 @@ const Home: NextPage = () => {
           />
 
           <Text mt={3} textAlign="center">
-            Não esquente a cabeça, nois cuidados do seu equipamento!
-          </Text>
-        </Flex>
-
-        <Box mt={10}>
-          <CarouselApp />
-        </Box>
-      </Container>
-
-      <Box
-        mt={20}
-        backgroundImage="url(/img/background-fixed.jpg)"
-        backgroundAttachment="fixed"
-        backgroundRepeat="no-repeat"
-        backgroundSize="cover"
-      >
-        <Box
-          p={10}
-          bg={colorMode === "light" ? "whiteAlpha.800" : "blackAlpha.900"}
-        >
-          <Container maxW="5xl">
-            <Flex direction="column" justify="center" align="center">
-              <Heading mt={3} mb={5} textAlign="center">
-                O Cliente em Primeiro Lugar!
-              </Heading>
-
-              <Box
-                width="200px"
-                h="4px"
-                bgGradient="linear(to-r, blue.500, blue.800)"
-              />
-
-              <Text mt={3} textAlign="center">
-                Aqui o Cliente tem tratamento VIP
-              </Text>
-            </Flex>
-
-            <Grid
-              templateColumns="repeat(auto-fit, minmax(250px, 250px))"
-              gap={5}
-              mt={10}
-              justifyContent="center"
-            >
-              <Flex
-                direction="column"
-                justify="center"
-                align="center"
-                textAlign="center"
-              >
-                <Box w="80px">
-                  <Image
-                    src="/img/trophy.svg"
-                    width={200}
-                    height={200}
-                    layout="responsive"
-                    objectFit="contain"
-                    alt="NK Informática e Gráfica - Assistência Técnica"
-                  />
-                </Box>
-                <Heading fontSize="xl" mt={2} mb={2}>
-                  Serviço de Qualidade
-                </Heading>
-                <Text fontSize="sm">
-                  Temos Profissionais altamente qualificados, garantimos o nosso
-                  serviço, e estamos sempre prontos a lhe oferecer o melhor!
-                </Text>
-              </Flex>
-              <Flex
-                direction="column"
-                justify="center"
-                align="center"
-                textAlign="center"
-              >
-                <Box w="80px">
-                  <Image
-                    src="/img/tele.svg"
-                    width={200}
-                    height={200}
-                    layout="responsive"
-                    objectFit="contain"
-                    alt="NK Informática e Gráfica - Assistência Técnica"
-                  />
-                </Box>
-                <Heading fontSize="xl" mt={2} mb={2}>
-                  Atendimento Diferenciado
-                </Heading>
-                <Text fontSize="sm">
-                  Estamos sempre prontos a lhe atender, seja qual for a ocasião
-                  nossa equipe estará a postos para solucionar o seu problema!
-                </Text>
-              </Flex>
-              <Flex
-                direction="column"
-                justify="center"
-                align="center"
-                textAlign="center"
-              >
-                <Box w="80px">
-                  <Image
-                    src="/img/delivery.svg"
-                    width={200}
-                    height={200}
-                    layout="responsive"
-                    objectFit="contain"
-                    alt="NK Informática e Gráfica - Assistência Técnica"
-                  />
-                </Box>
-                <Heading fontSize="xl" mt={2} mb={2}>
-                  Rapidez e Agilidade
-                </Heading>
-                <Text fontSize="sm">
-                  Entregaremos o seu pedido com o maior rapidez, trabalhamos a
-                  todo vapor para lhe entregar em tempo hábil o seu produto!
-                </Text>
-              </Flex>
-            </Grid>
-          </Container>
-        </Box>
-      </Box>
-
-      <Container mt={20} maxW="6xl">
-        <Flex direction="column" justify="center" align="center">
-          <Heading mt={3} mb={5} textAlign="center">
-            Planos de Assistência Técnica Residenciais
-          </Heading>
-
-          <Box
-            width="200px"
-            h="4px"
-            bgGradient="linear(to-r, blue.500, blue.800)"
-          />
-
-          <Text mt={3} textAlign="center">
-            Não esquente a cabeça, nois cuidados do seu equipamento!
+            Nossos melhores produtos para você!
           </Text>
         </Flex>
 
@@ -532,7 +401,7 @@ const Home: NextPage = () => {
             itemsToScroll={1}
             renderArrow={CustomArrow}
             renderPagination={CustomPagination}
-            breakPoints={configs.carousel}
+            breakPoints={configs.products}
           >
             <Box
               rounded="2xl"
@@ -547,52 +416,669 @@ const Home: NextPage = () => {
                 <Image
                   src="https://img.freepik.com/vetores-gratis/conjunto-de-cartao-de-visita-profissional-moderno_169798-804.jpg?size=338&ext=jpg"
                   width={350}
-                  height={350}
+                  height={300}
                   layout="responsive"
-                  objectFit="contain"
+                  objectFit="cover"
                   alt="NK Informática e Gráfica - Assistência Técnica"
                 />
               </Box>
 
-              <Box p={5}>
-                <List spacing={3} fontSize={["xs", "md", "md", "md", "md"]}>
-                  <ListItem>
-                    <ListIcon
-                      as={MdCheckCircle}
-                      color={colorMode === "light" ? "blue.500" : "blue.200"}
-                    />
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                  </ListItem>
-                  <ListItem>
-                    <ListIcon
-                      as={MdCheckCircle}
-                      color={colorMode === "light" ? "blue.500" : "blue.200"}
-                    />
-                    Assumenda, quia temporibus eveniet a libero incidunt
-                    suscipit
-                  </ListItem>
-                  <ListItem>
-                    <ListIcon
-                      as={MdCheckCircle}
-                      color={colorMode === "light" ? "blue.500" : "blue.200"}
-                    />
-                    Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
-                  </ListItem>
-                </List>
+              <Box p={3}>
+                <Text
+                  fontWeight="bold"
+                  fontSize={["md", "lg", "lg", "lg", "lg"]}
+                  color={colorMode === "light" ? "blue.500" : "blue.200"}
+                >
+                  Cartão de Visita - 89mm x 49mm / 1000 unidades
+                </Text>
+
+                <Stack
+                  spacing={1}
+                  mt={2}
+                  fontSize={["xx-small", "sm", "sm", "sm", "sm"]}
+                  color={colorMode === "light" ? "gray.600" : "gray.200"}
+                >
+                  <Text>
+                    <strong>Ref:</strong> 0090
+                  </Text>
+                  <Text>
+                    <strong>Quantidade:</strong> 1000
+                  </Text>
+                  <Text>
+                    <strong>Cobertura:</strong> Verniz Total Frente
+                  </Text>
+                  <Text>
+                    <strong>Material:</strong> Papel Couchê 300g
+                  </Text>
+                  <Text>
+                    <strong>Tempo de Produção:</strong> 4 dias
+                  </Text>
+                </Stack>
+
+                <Flex mt={3} justify="center" align="center">
+                  <Text
+                    fontWeight="light"
+                    fontSize={["xs", "md", "md", "md", "md"]}
+                    mr={2}
+                    textDecor="line-through"
+                  >
+                    R$ 200,00
+                  </Text>
+                  <Text
+                    fontWeight="light"
+                    fontSize={["xs", "md", "md", "md", "md"]}
+                    mr={2}
+                  >
+                    /
+                  </Text>
+                  <Text
+                    fontWeight="bold"
+                    fontSize={["lg", "2xl", "2xl", "2xl", "2xl"]}
+                  >
+                    R$ 180,00
+                  </Text>
+                </Flex>
 
                 <Button
                   isFullWidth
                   colorScheme="blue"
-                  mt={5}
-                  leftIcon={<BsCheck />}
+                  mt={3}
+                  leftIcon={<FaShoppingCart />}
                 >
-                  Contratar
+                  Comprar
+                </Button>
+              </Box>
+            </Box>
+
+            <Box
+              rounded="2xl"
+              borderWidth="1px"
+              shadow="lg"
+              overflow="hidden"
+              w="280px"
+              _hover={{ transform: "scale(1.05)" }}
+              transition="all .3s"
+            >
+              <Box w="100%">
+                <Image
+                  src="https://img.freepik.com/vetores-gratis/conjunto-de-cartao-de-visita-profissional-moderno_169798-804.jpg?size=338&ext=jpg"
+                  width={350}
+                  height={300}
+                  layout="responsive"
+                  objectFit="cover"
+                  alt="NK Informática e Gráfica - Assistência Técnica"
+                />
+              </Box>
+
+              <Box p={3}>
+                <Text
+                  fontWeight="bold"
+                  fontSize={["md", "lg", "lg", "lg", "lg"]}
+                  color={colorMode === "light" ? "blue.500" : "blue.200"}
+                >
+                  Cartão de Visita - 89mm x 49mm / 1000 unidades
+                </Text>
+
+                <Stack
+                  spacing={1}
+                  mt={2}
+                  fontSize={["xx-small", "sm", "sm", "sm", "sm"]}
+                  color={colorMode === "light" ? "gray.600" : "gray.200"}
+                >
+                  <Text>
+                    <strong>Ref:</strong> 0090
+                  </Text>
+                  <Text>
+                    <strong>Quantidade:</strong> 1000
+                  </Text>
+                  <Text>
+                    <strong>Cobertura:</strong> Verniz Total Frente
+                  </Text>
+                  <Text>
+                    <strong>Material:</strong> Papel Couchê 300g
+                  </Text>
+                  <Text>
+                    <strong>Tempo de Produção:</strong> 4 dias
+                  </Text>
+                </Stack>
+
+                <Flex mt={3} justify="center" align="center">
+                  <Text
+                    fontWeight="light"
+                    fontSize={["xs", "md", "md", "md", "md"]}
+                    mr={2}
+                    textDecor="line-through"
+                  >
+                    R$ 200,00
+                  </Text>
+                  <Text
+                    fontWeight="light"
+                    fontSize={["xs", "md", "md", "md", "md"]}
+                    mr={2}
+                  >
+                    /
+                  </Text>
+                  <Text
+                    fontWeight="bold"
+                    fontSize={["lg", "2xl", "2xl", "2xl", "2xl"]}
+                  >
+                    R$ 180,00
+                  </Text>
+                </Flex>
+
+                <Button
+                  isFullWidth
+                  colorScheme="blue"
+                  mt={3}
+                  leftIcon={<FaShoppingCart />}
+                >
+                  Comprar
+                </Button>
+              </Box>
+            </Box>
+
+            <Box
+              rounded="2xl"
+              borderWidth="1px"
+              shadow="lg"
+              overflow="hidden"
+              w="280px"
+              _hover={{ transform: "scale(1.05)" }}
+              transition="all .3s"
+            >
+              <Box w="100%">
+                <Image
+                  src="https://img.freepik.com/vetores-gratis/conjunto-de-cartao-de-visita-profissional-moderno_169798-804.jpg?size=338&ext=jpg"
+                  width={350}
+                  height={300}
+                  layout="responsive"
+                  objectFit="cover"
+                  alt="NK Informática e Gráfica - Assistência Técnica"
+                />
+              </Box>
+
+              <Box p={3}>
+                <Text
+                  fontWeight="bold"
+                  fontSize={["md", "lg", "lg", "lg", "lg"]}
+                  color={colorMode === "light" ? "blue.500" : "blue.200"}
+                >
+                  Cartão de Visita - 89mm x 49mm / 1000 unidades
+                </Text>
+
+                <Stack
+                  spacing={1}
+                  mt={2}
+                  fontSize={["xx-small", "sm", "sm", "sm", "sm"]}
+                  color={colorMode === "light" ? "gray.600" : "gray.200"}
+                >
+                  <Text>
+                    <strong>Ref:</strong> 0090
+                  </Text>
+                  <Text>
+                    <strong>Quantidade:</strong> 1000
+                  </Text>
+                  <Text>
+                    <strong>Cobertura:</strong> Verniz Total Frente
+                  </Text>
+                  <Text>
+                    <strong>Material:</strong> Papel Couchê 300g
+                  </Text>
+                  <Text>
+                    <strong>Tempo de Produção:</strong> 4 dias
+                  </Text>
+                </Stack>
+
+                <Flex mt={3} justify="center" align="center">
+                  <Text
+                    fontWeight="light"
+                    fontSize={["xs", "md", "md", "md", "md"]}
+                    mr={2}
+                    textDecor="line-through"
+                  >
+                    R$ 200,00
+                  </Text>
+                  <Text
+                    fontWeight="light"
+                    fontSize={["xs", "md", "md", "md", "md"]}
+                    mr={2}
+                  >
+                    /
+                  </Text>
+                  <Text
+                    fontWeight="bold"
+                    fontSize={["lg", "2xl", "2xl", "2xl", "2xl"]}
+                  >
+                    R$ 180,00
+                  </Text>
+                </Flex>
+
+                <Button
+                  isFullWidth
+                  colorScheme="blue"
+                  mt={3}
+                  leftIcon={<FaShoppingCart />}
+                >
+                  Comprar
+                </Button>
+              </Box>
+            </Box>
+
+            <Box
+              rounded="2xl"
+              borderWidth="1px"
+              shadow="lg"
+              overflow="hidden"
+              w="280px"
+              _hover={{ transform: "scale(1.05)" }}
+              transition="all .3s"
+            >
+              <Box w="100%">
+                <Image
+                  src="https://img.freepik.com/vetores-gratis/conjunto-de-cartao-de-visita-profissional-moderno_169798-804.jpg?size=338&ext=jpg"
+                  width={350}
+                  height={300}
+                  layout="responsive"
+                  objectFit="cover"
+                  alt="NK Informática e Gráfica - Assistência Técnica"
+                />
+              </Box>
+
+              <Box p={3}>
+                <Text
+                  fontWeight="bold"
+                  fontSize={["md", "lg", "lg", "lg", "lg"]}
+                  color={colorMode === "light" ? "blue.500" : "blue.200"}
+                >
+                  Cartão de Visita - 89mm x 49mm / 1000 unidades
+                </Text>
+
+                <Stack
+                  spacing={1}
+                  mt={2}
+                  fontSize={["xx-small", "sm", "sm", "sm", "sm"]}
+                  color={colorMode === "light" ? "gray.600" : "gray.200"}
+                >
+                  <Text>
+                    <strong>Ref:</strong> 0090
+                  </Text>
+                  <Text>
+                    <strong>Quantidade:</strong> 1000
+                  </Text>
+                  <Text>
+                    <strong>Cobertura:</strong> Verniz Total Frente
+                  </Text>
+                  <Text>
+                    <strong>Material:</strong> Papel Couchê 300g
+                  </Text>
+                  <Text>
+                    <strong>Tempo de Produção:</strong> 4 dias
+                  </Text>
+                </Stack>
+
+                <Flex mt={3} justify="center" align="center">
+                  <Text
+                    fontWeight="light"
+                    fontSize={["xs", "md", "md", "md", "md"]}
+                    mr={2}
+                    textDecor="line-through"
+                  >
+                    R$ 200,00
+                  </Text>
+                  <Text
+                    fontWeight="light"
+                    fontSize={["xs", "md", "md", "md", "md"]}
+                    mr={2}
+                  >
+                    /
+                  </Text>
+                  <Text
+                    fontWeight="bold"
+                    fontSize={["lg", "2xl", "2xl", "2xl", "2xl"]}
+                  >
+                    R$ 180,00
+                  </Text>
+                </Flex>
+
+                <Button
+                  isFullWidth
+                  colorScheme="blue"
+                  mt={3}
+                  leftIcon={<FaShoppingCart />}
+                >
+                  Comprar
+                </Button>
+              </Box>
+            </Box>
+
+            <Box
+              rounded="2xl"
+              borderWidth="1px"
+              shadow="lg"
+              overflow="hidden"
+              w="280px"
+              _hover={{ transform: "scale(1.05)" }}
+              transition="all .3s"
+            >
+              <Box w="100%">
+                <Image
+                  src="https://img.freepik.com/vetores-gratis/conjunto-de-cartao-de-visita-profissional-moderno_169798-804.jpg?size=338&ext=jpg"
+                  width={350}
+                  height={300}
+                  layout="responsive"
+                  objectFit="cover"
+                  alt="NK Informática e Gráfica - Assistência Técnica"
+                />
+              </Box>
+
+              <Box p={3}>
+                <Text
+                  fontWeight="bold"
+                  fontSize={["md", "lg", "lg", "lg", "lg"]}
+                  color={colorMode === "light" ? "blue.500" : "blue.200"}
+                >
+                  Cartão de Visita - 89mm x 49mm / 1000 unidades
+                </Text>
+
+                <Stack
+                  spacing={1}
+                  mt={2}
+                  fontSize={["xx-small", "sm", "sm", "sm", "sm"]}
+                  color={colorMode === "light" ? "gray.600" : "gray.200"}
+                >
+                  <Text>
+                    <strong>Ref:</strong> 0090
+                  </Text>
+                  <Text>
+                    <strong>Quantidade:</strong> 1000
+                  </Text>
+                  <Text>
+                    <strong>Cobertura:</strong> Verniz Total Frente
+                  </Text>
+                  <Text>
+                    <strong>Material:</strong> Papel Couchê 300g
+                  </Text>
+                  <Text>
+                    <strong>Tempo de Produção:</strong> 4 dias
+                  </Text>
+                </Stack>
+
+                <Flex mt={3} justify="center" align="center">
+                  <Text
+                    fontWeight="light"
+                    fontSize={["xs", "md", "md", "md", "md"]}
+                    mr={2}
+                    textDecor="line-through"
+                  >
+                    R$ 200,00
+                  </Text>
+                  <Text
+                    fontWeight="light"
+                    fontSize={["xs", "md", "md", "md", "md"]}
+                    mr={2}
+                  >
+                    /
+                  </Text>
+                  <Text
+                    fontWeight="bold"
+                    fontSize={["lg", "2xl", "2xl", "2xl", "2xl"]}
+                  >
+                    R$ 180,00
+                  </Text>
+                </Flex>
+
+                <Button
+                  isFullWidth
+                  colorScheme="blue"
+                  mt={3}
+                  leftIcon={<FaShoppingCart />}
+                >
+                  Comprar
                 </Button>
               </Box>
             </Box>
           </Carousel>
         </Box>
       </Container>
+
+      <Box
+        mt={20}
+        backgroundImage="url(/img/background-fixed.jpg)"
+        backgroundAttachment="fixed"
+        backgroundRepeat="no-repeat"
+        backgroundSize="cover"
+      >
+        <Box
+          p={10}
+          bg={colorMode === "light" ? "whiteAlpha.800" : "blackAlpha.900"}
+        >
+          <Container maxW="6xl">
+            <Flex direction="column" justify="center" align="center">
+              <Heading mt={3} mb={5} textAlign="center">
+                Nossos Parceiros
+              </Heading>
+
+              <Box
+                width="200px"
+                h="4px"
+                bgGradient="linear(to-r, blue.500, blue.800)"
+              />
+
+              <Text mt={3} textAlign="center">
+                Empresas e Pessoas que acreditam no nosso potencial!
+              </Text>
+            </Flex>
+
+            <Carousel
+              isRTL={false}
+              itemPadding={[26, 15]}
+              itemsToShow={3}
+              itemsToScroll={1}
+              renderArrow={CustomArrow}
+              renderPagination={CustomPagination}
+              breakPoints={configs.partners}
+            >
+              <Flex
+                rounded="xl"
+                bg={colorMode === "light" ? "white" : "gray.600"}
+                overflow="hidden"
+                shadow="lg"
+                justify="center"
+                align="center"
+                textAlign="center"
+                direction="column"
+                w="200px"
+                p={3}
+                h={["180px", "230px", "230px", "230px", "230px"]}
+              >
+                <Box
+                  w={["100px", "150px", "150px", "150px", "150px"]}
+                  h={["100px", "150px", "150px", "150px", "150px"]}
+                  rounded="xl"
+                  overflow="hidden"
+                >
+                  <Image
+                    src="/img/palmieri.png"
+                    width={350}
+                    height={350}
+                    layout="responsive"
+                    objectFit="contain"
+                    alt="NK Informática e Gráfica - Assistência Técnica"
+                  />
+                </Box>
+                <Text mt={2} fontWeight="bold">
+                  Palmieri Uniformes
+                </Text>
+              </Flex>
+
+              <Flex
+                rounded="xl"
+                bg={colorMode === "light" ? "white" : "gray.600"}
+                overflow="hidden"
+                shadow="lg"
+                justify="center"
+                align="center"
+                textAlign="center"
+                direction="column"
+                w="200px"
+                p={3}
+                h={["180px", "230px", "230px", "230px", "230px"]}
+              >
+                <Box
+                  w={["100px", "150px", "150px", "150px", "150px"]}
+                  h={["100px", "150px", "150px", "150px", "150px"]}
+                  rounded="xl"
+                  overflow="hidden"
+                >
+                  <Image
+                    src="/img/dolce.svg"
+                    width={350}
+                    height={350}
+                    layout="responsive"
+                    objectFit="contain"
+                    alt="NK Informática e Gráfica - Assistência Técnica"
+                  />
+                </Box>
+                <Text mt={2} fontWeight="bold">
+                  Dolce Encanto
+                </Text>
+              </Flex>
+
+              <Flex
+                rounded="xl"
+                bg={colorMode === "light" ? "white" : "gray.600"}
+                overflow="hidden"
+                shadow="lg"
+                justify="center"
+                align="center"
+                textAlign="center"
+                direction="column"
+                w="200px"
+                p={3}
+                h={["180px", "230px", "230px", "230px", "230px"]}
+              >
+                <Box
+                  w={["100px", "150px", "150px", "150px", "150px"]}
+                  h={["100px", "150px", "150px", "150px", "150px"]}
+                  rounded="xl"
+                  overflow="hidden"
+                >
+                  <Image
+                    src="/img/modelo.svg"
+                    width={350}
+                    height={350}
+                    layout="responsive"
+                    objectFit="contain"
+                    alt="NK Informática e Gráfica - Assistência Técnica"
+                  />
+                </Box>
+                <Text mt={2} fontWeight="bold">
+                  Auto Peças Modelo
+                </Text>
+              </Flex>
+
+              <Flex
+                rounded="xl"
+                bg={colorMode === "light" ? "white" : "gray.600"}
+                overflow="hidden"
+                shadow="lg"
+                justify="center"
+                align="center"
+                textAlign="center"
+                direction="column"
+                w="200px"
+                p={3}
+                h={["180px", "230px", "230px", "230px", "230px"]}
+              >
+                <Box
+                  w={["100px", "150px", "150px", "150px", "150px"]}
+                  h={["100px", "150px", "150px", "150px", "150px"]}
+                  rounded="xl"
+                  overflow="hidden"
+                >
+                  <Image
+                    src="/img/santafilomena.svg"
+                    width={350}
+                    height={350}
+                    layout="responsive"
+                    objectFit="contain"
+                    alt="NK Informática e Gráfica - Assistência Técnica"
+                  />
+                </Box>
+                <Text mt={2} fontWeight="bold">
+                  Loja Santa Filomena
+                </Text>
+              </Flex>
+
+              <Flex
+                rounded="xl"
+                bg={colorMode === "light" ? "white" : "gray.600"}
+                overflow="hidden"
+                shadow="lg"
+                justify="center"
+                align="center"
+                textAlign="center"
+                direction="column"
+                w="200px"
+                p={3}
+                h={["180px", "230px", "230px", "230px", "230px"]}
+              >
+                <Box
+                  w={["100px", "150px", "150px", "150px", "150px"]}
+                  h={["100px", "150px", "150px", "150px", "150px"]}
+                  rounded="xl"
+                  overflow="hidden"
+                >
+                  <Image
+                    src="/img/pmw.png"
+                    width={350}
+                    height={350}
+                    layout="responsive"
+                    objectFit="contain"
+                    alt="NK Informática e Gráfica - Assistência Técnica"
+                  />
+                </Box>
+                <Text mt={2} fontWeight="bold">
+                  PMW Rifas
+                </Text>
+              </Flex>
+
+              <Flex
+                rounded="xl"
+                bg={colorMode === "light" ? "white" : "gray.600"}
+                overflow="hidden"
+                shadow="lg"
+                justify="center"
+                align="center"
+                textAlign="center"
+                direction="column"
+                w="200px"
+                p={3}
+                h={["180px", "230px", "230px", "230px", "230px"]}
+              >
+                <Box
+                  w={["100px", "150px", "150px", "150px", "150px"]}
+                  h={["100px", "150px", "150px", "150px", "150px"]}
+                  rounded="xl"
+                  overflow="hidden"
+                >
+                  <Image
+                    src="/img/santamaria.svg"
+                    width={350}
+                    height={350}
+                    layout="responsive"
+                    objectFit="contain"
+                    alt="NK Informática e Gráfica - Assistência Técnica"
+                  />
+                </Box>
+                <Text mt={2} fontWeight="bold">
+                  Prefeitura Municipal de Santa Maria - TO
+                </Text>
+              </Flex>
+            </Carousel>
+          </Container>
+        </Box>
+      </Box>
     </React.Fragment>
   );
 };
